@@ -1,0 +1,11 @@
+{
+    "name": "scraper",
+    "version": "0.0.0",
+    "private": true,
+    "scripts": {
+        "start": "node scraper.js"
+    },
+    "dependencies": {
+        "puppeteer": "^8.0.0"
+    }
+}
