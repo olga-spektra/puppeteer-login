@@ -3,7 +3,7 @@ const CREDENTIALS = require('./constants');
 const USERNAME = '#login_selector';
 const PASSWORD = '#password_selector';
 const LOGIN_BUTTON = '#login_button_selector';
-const EXPORT_BUTTON = '#download_button_selector';
+const EXPORT_BUTTON = '#export_button_selector';
 const IMPORT_BUTTON = '#import_button_selector';
 
 async function startBrowser() {
