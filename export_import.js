@@ -45,7 +45,7 @@ async function login_and_export(url) {
     page.waitForSelector(EXPORT_BUTTON),
     page.click(EXPORT_BUTTON),
   ]);
-      console.log('Done.');
+      console.log('Export: done.');
 }
 
 (async () => {
@@ -80,7 +80,7 @@ async function login_and_import(url) {
   await elementHandle.uploadFile('FILE');
   await page.click(IMPORT_BUTTON);
 
-      console.log('Done');
+      console.log('Import: done');
 }
 
 (async () => {
