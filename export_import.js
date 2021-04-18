@@ -77,7 +77,7 @@ async function login_and_import(url) {
 
   const elementHandle = await page.$("input[type=file]");
   
-  await elementHandle.uploadFile('FILE');
+  await elementHandle.uploadFile('/PATH_TO_FILE/FILE');
   await page.click(IMPORT_BUTTON);
 
       console.log('Import: done');
