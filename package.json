@@ -4,11 +4,11 @@
   "description": "",
   "main": "export_import.js",
   "dependencies": {
+    "axios": "^0.21.1",
     "puppeteer": "^8.0.0"
   },
   "devDependencies": {},
-  "scripts": {
-  },
+  "scripts": {},
   "author": "",
   "license": "ISC"
 }

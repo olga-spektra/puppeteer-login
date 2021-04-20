@@ -1,4 +1,5 @@
 const puppeteer = require('puppeteer');
+
 const CREDENTIALS = require('./constants');
 const USERNAME = '#login_selector';
 const PASSWORD = '#password_selector';
@@ -7,17 +8,17 @@ const EXPORT_BUTTON = '#export_button_selector';
 const IMPORT_BUTTON = '#import_button_selector';
 
 async function startBrowser() {
-  const browser = await puppeteer.launch({headless: true});
+  const browser = await puppeteer.launch({ headless: true });
   const page = await browser.newPage();
-  
-  return {browser, page};
+
+  return { browser, page };
 }
 
 async function login_and_export(url) {
-  const {browser, page} = await startBrowser();
-  
-  page.setViewport({width: 1366, height: 768});
-  
+  const { browser, page } = await startBrowser();
+
+  page.setViewport({ width: 1366, height: 768 });
+
   // Open the URL.
   await page.goto(url);
 
@@ -27,16 +28,16 @@ async function login_and_export(url) {
   await page.waitForSelector(PASSWORD);
   await page.keyboard.type(CREDENTIALS.password);
   await page.click(LOGIN_BUTTON);
-      
-      console.log('Logged in to instance 1.');
+
+  console.log('Logged in to instance 1.');
 
   // Setting the path and doing export.
   const path = require('path');
   const downloadPath = path.resolve('/PATH_TO_FILE');
-  
+
   await page._client.send('Page.setDownloadBehavior', {
     behavior: 'allow',
-    downloadPath: downloadPath
+    downloadPath: downloadPath,
   });
   await Promise.all([
     page.waitForNavigation({
@@ -45,20 +46,20 @@ async function login_and_export(url) {
     page.waitForSelector(EXPORT_BUTTON),
     page.click(EXPORT_BUTTON),
   ]);
-      console.log('Export: done.');
+  console.log('Export: done.');
 }
 
 (async () => {
-  await login_and_export("URL");
-})()
+  await login_and_export('URL');
+})();
 
 ///////////////////////////////////////////////////////////
 
 async function login_and_import(url) {
-  const {browser, page} = await startBrowser();
-  
-  page.setViewport({width: 1366, height: 768});
-  
+  const { browser, page } = await startBrowser();
+
+  page.setViewport({ width: 1366, height: 768 });
+
   // Open the URL.
   await page.goto(url);
 
@@ -68,29 +69,22 @@ async function login_and_import(url) {
   await page.waitForSelector(PASSWORD);
   await page.keyboard.type(CREDENTIALS.password);
   await page.click(LOGIN_BUTTON);
-      
-      console.log('Logged in to instance 2.');
+
+  console.log('Logged in to instance 2.');
 
   // Setting the file location and doing import.
   await page.waitForSelector('input[type=file]');
   await page.waitFor(5000);
 
-  const elementHandle = await page.$("input[type=file]");
-  
+  const elementHandle = await page.$('input[type=file]');
+
   await elementHandle.uploadFile('/PATH_TO_FILE/FILE');
   await page.click(IMPORT_BUTTON);
 
-      console.log('Import: done');
+  console.log('Import: done');
 }
 
 (async () => {
-  await login_and_import("URL");
-      process.exit(1);
-})()
-
-
-
-
-
-
-
+  await login_and_import('URL');
+  process.exit(1);
+})();
