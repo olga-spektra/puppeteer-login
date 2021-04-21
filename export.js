@@ -57,7 +57,11 @@ process.on('unhandledRejection', (error) => {
     '#_com_liferay_product_navigation_product_menu_web_portlet_ProductMenuPortlet_portlet_com_liferay_exportimport_web_portlet_ExportPortlet',
   );
 
+  await page.waitForSelector('a.btn.btn-primary.nav-btn.nav-btn-monospaced');
+
   await page.click('a.btn.btn-primary.nav-btn.nav-btn-monospaced');
+
+  await page.waitForTimeout(1000);
 
   const [exportButton] = await page.$x("//button[contains(., 'Export')]");
 
