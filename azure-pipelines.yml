@@ -7,6 +7,13 @@ variables:
 - group: varGroup
 
 steps:
+- task: qetza.replacetokens.replacetokens-task.replacetokens@3
+  displayName: 'Replace tokens in constants.js'
+  inputs:
+    targetFiles: constants.js
+    tokenPrefix: '__'
+    tokenSuffix: '__'
+
 - task: Cache@2
   displayName: Cache
   inputs:
