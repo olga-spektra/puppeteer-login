@@ -177,7 +177,7 @@ async function doImport(filePath) {
 
   await elementHandle.uploadFile(filePath);
 
-  await page.waitForTimeout(1000);
+  await page.waitForTimeout(5000);
 
   await page.waitForSelector(
     '#_com_liferay_exportimport_web_portlet_ImportPortlet_continueButton',
