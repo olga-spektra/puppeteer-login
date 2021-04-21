@@ -7,7 +7,6 @@ variables:
 - group: varGroup
 
 steps:
-
 - task: Cache@2
   displayName: Cache
   inputs:
