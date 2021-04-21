@@ -15,3 +15,7 @@
 /node_modules
 /.aws
 /.azure
+
+exported_file
+screenshot.png
+files/

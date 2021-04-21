@@ -24,11 +24,11 @@ steps:
     key: 'npm | "$(Agent.OS)" | $(system.defaultWorkingDirectory)/package-lock.json'
     path: '$(system.defaultWorkingDirectory)/node_modules'
     cacheHitVar: CacheRestored
-  
+
 - script: |
    npm install
   workingDirectory: $(system.defaultworkingdirectory)
 
-- script: | 
+- script: |
    node export-import.js
   workingDirectory: $(system.defaultworkingdirectory)
