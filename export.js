@@ -187,7 +187,7 @@ async function doImport(filePath) {
     '#_com_liferay_exportimport_web_portlet_ImportPortlet_continueButton',
   );
 
-  await page.waitForTimeout(1000);
+  await page.waitForTimeout(5000);
 
   const [importButton] = await page.$x("//button[contains(., 'Import')]");
 
