@@ -8,7 +8,7 @@ variables:
 
 steps:
 - task: qetza.replacetokens.replacetokens-task.replacetokens@3
-  displayName: 'Replace tokens in constants.js file'
+  displayName: 'Replace credentials in constants.js file'
   inputs:
     rootDirectory: '$(system.defaultworkingdirectory)'
     targetFiles: constants.js
@@ -30,5 +30,5 @@ steps:
   workingDirectory: $(system.defaultworkingdirectory)
 
 - script: |
-   node export-import.js
+   node export.js
   workingDirectory: $(system.defaultworkingdirectory)
