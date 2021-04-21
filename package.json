@@ -2,7 +2,7 @@
   "name": "puppeteer",
   "version": "1.0.0",
   "description": "",
-  "main": "export_import.js",
+  "main": "export.js",
   "dependencies": {
     "axios": "^0.21.1",
     "puppeteer": "^8.0.0"
